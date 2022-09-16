@@ -26,32 +26,53 @@ namespace WebApiDDD.Infra.Data.Repositories.Base
 
         public virtual IQueryable<TModel> Query(TFilterParams filterParams)
         {
-            throw new NotImplementedException();
+            var query = _dbSet.AsQueryable();
+
+            if (filterParams.Id.HasValue)
+                query = query.Where(x => x.Id == filterParams.Id);
+
+            if (filterParams.Ids != null && filterParams.Ids.Any())
+                query = query.Where(x => filterParams.Ids.Contains(x.Id));
+
+            return query;
         }
 
-        public IQueryable<TModel> QueryPagination<TSelect>(IQueryable<TSelect> query, TFilterParams filterParams)
+        public virtual IQueryable<TSelect> QueryPagination<TSelect>(IQueryable<TSelect> query, TFilterParams filterParams)
         {
-            throw new NotImplementedException();
+            if (!filterParams.IgnorePagination && filterParams.PageSize > 0)
+            {
+                var take = filterParams.PageSize;
+                var skip = (filterParams.PageNumber - 1) * take;
+
+                skip = skip >= 0 ? skip : 0;
+                query = query.Skip(skip).Take(take);
+            }
+
+            return query;
         }
 
-        public Task AddAsync(TModel model)
+        public virtual async Task AddAsync(TModel model)
         {
-            throw new NotImplementedException();
+            await _dbSet.AddAsync(model);
         }
 
-        public Task DeleteAsync(Guid id)
+        public virtual async Task UpdateAsync(TModel model)
         {
-            throw new NotImplementedException();
+            await Task.Run(() =>
+            {
+                _dbSet.Update(model);
+            });
         }
 
-        public Task<int> SaveChangesAsync()
+        public virtual async Task DeleteAsync(Guid id)
         {
-            throw new NotImplementedException();
+            var model = await _dbSet.FindAsync(id);
+            if (model != null) _dbSet.Remove(model);
         }
 
-        public Task UpdateAsync(TModel model)
+        public virtual async Task<int> SaveChangesAsync()
         {
-            throw new NotImplementedException();
+            return await _context.SaveChangesAsync();
         }
     }
 }

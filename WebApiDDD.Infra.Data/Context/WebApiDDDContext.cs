@@ -10,6 +10,7 @@ namespace WebApiDDD.Infra.Data.Context
         }
 
         public DbSet<Carros> Carros { get; set; }
+        public DbSet<Marcas> Marcas { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

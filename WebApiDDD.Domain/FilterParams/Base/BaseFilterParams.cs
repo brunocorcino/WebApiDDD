@@ -1,17 +1,16 @@
-﻿namespace WebApiDDD.Domain.FilterParams.Base
+﻿using WebApiDDD.Infra.CrossCutting.Common.Helper;
+
+namespace WebApiDDD.Domain.FilterParams.Base
 {
     public class BaseFilterParams
     {
-        private const int DefaultPageNumber = 1;
-        private const int DefaultPageSize = 100;
-
         private int _pageNumber;
         private int _pageSize;
 
         public BaseFilterParams()
         {
-            _pageNumber = DefaultPageNumber;
-            _pageSize = DefaultPageSize;
+            _pageNumber = Constants.DefaultPageNumber;
+            _pageSize = Constants.DefaultPageSize;
         }
 
         public Guid? Id { get; set; }
@@ -19,7 +18,7 @@
 
         public int PageNumber 
         {
-            get => _pageNumber <= 0 ? DefaultPageNumber : _pageNumber;
+            get => _pageNumber <= 0 ? Constants.DefaultPageNumber : _pageNumber;
             set => _pageNumber = value;
         }
         public int PageSize
@@ -28,7 +27,7 @@
             {
                 if (IgnorePagination) return int.MaxValue;
 
-                return _pageSize <= 0 ? DefaultPageSize : _pageSize;
+                return _pageSize <= 0 ? Constants.DefaultPageSize : _pageSize;
             }
             set => _pageSize = value;
         }

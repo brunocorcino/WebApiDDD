@@ -6,8 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Interfaces\Services\" />
-    <Folder Include="Services\" />
+    <ProjectReference Include="..\WebApiDDD.Infra.CrossCutting.Common\WebApiDDD.Infra.CrossCutting.Common.csproj" />
   </ItemGroup>
 
 </Project>

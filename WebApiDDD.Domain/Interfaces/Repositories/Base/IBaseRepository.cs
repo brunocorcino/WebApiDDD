@@ -9,7 +9,7 @@ namespace WebApiDDD.Domain.Interfaces.Repositories.Base
     {
         Task<TModel> GetByIdAsync(Guid id);
         IQueryable<TModel> Query(TFilterParams filterParams);
-        IQueryable<TModel> QueryPagination<TSelect>(IQueryable<TSelect> query, TFilterParams filterParams);
+        IQueryable<TSelect> QueryPagination<TSelect>(IQueryable<TSelect> query, TFilterParams filterParams);
         Task AddAsync(TModel model);
         Task UpdateAsync(TModel model);
         Task DeleteAsync(Guid id);
