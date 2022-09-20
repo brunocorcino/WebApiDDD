@@ -22,7 +22,7 @@ namespace WebApiDDD.Infra.CrossCutting.Common.Helper {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Messages {
+    public class Messages {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace WebApiDDD.Infra.CrossCutting.Common.Helper {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("WebApiDDD.Infra.CrossCutting.Common.Helper.Messages", typeof(Messages).Assembly);
@@ -51,7 +51,7 @@ namespace WebApiDDD.Infra.CrossCutting.Common.Helper {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,11 +61,20 @@ namespace WebApiDDD.Infra.CrossCutting.Common.Helper {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Operação realizada com êxito!.
+        ///   Looks up a localized string similar to O campo {0} é obrigatório..
         /// </summary>
-        internal static string OperacaoRealizadaComSucesso {
+        public static string CampoObrigatorio {
             get {
-                return ResourceManager.GetString("OperacaoRealizadaComSucesso", resourceCulture);
+                return ResourceManager.GetString("CampoObrigatorio", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Entidade não encontrada..
+        /// </summary>
+        public static string EntidadeNaoEncontrada {
+            get {
+                return ResourceManager.GetString("EntidadeNaoEncontrada", resourceCulture);
             }
         }
     }

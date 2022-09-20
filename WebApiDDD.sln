@@ -17,13 +17,15 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04.2 - IoC", "04.2 - IoC", 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "04.3 - Common", "04.3 - Common", "{8CB3C861-2C00-45E7-AE31-975C1621294C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiDDD.Infra.Data", "WebApiDDD.Infra.Data\WebApiDDD.Infra.Data.csproj", "{AB33752F-9605-487A-AB10-78844E596EBA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiDDD.Infra.Data", "WebApiDDD.Infra.Data\WebApiDDD.Infra.Data.csproj", "{AB33752F-9605-487A-AB10-78844E596EBA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiDDD.Infra.IoC", "WebApiDDD.Infra.IoC\WebApiDDD.Infra.IoC.csproj", "{85186488-A798-41C4-9710-746E5236E35F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiDDD.Infra.IoC", "WebApiDDD.Infra.IoC\WebApiDDD.Infra.IoC.csproj", "{85186488-A798-41C4-9710-746E5236E35F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiDDD.Infra.CrossCutting.Common", "WebApiDDD.Infra.CrossCutting.Common\WebApiDDD.Infra.CrossCutting.Common.csproj", "{4A45F6A6-C70C-4A00-B565-89DDF5BCC67D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiDDD.Infra.CrossCutting.Common", "WebApiDDD.Infra.CrossCutting.Common\WebApiDDD.Infra.CrossCutting.Common.csproj", "{4A45F6A6-C70C-4A00-B565-89DDF5BCC67D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiDDD.Domain", "WebApiDDD.Domain\WebApiDDD.Domain.csproj", "{1DFF1EBB-DE30-4AF5-8462-900899E61A88}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebApiDDD.Domain", "WebApiDDD.Domain\WebApiDDD.Domain.csproj", "{1DFF1EBB-DE30-4AF5-8462-900899E61A88}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApiDDD.Application", "WebApiDDD.Application\WebApiDDD.Application.csproj", "{180630CA-404B-4AC7-92DE-065789043D29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -47,6 +49,10 @@ Global
 		{1DFF1EBB-DE30-4AF5-8462-900899E61A88}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DFF1EBB-DE30-4AF5-8462-900899E61A88}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DFF1EBB-DE30-4AF5-8462-900899E61A88}.Release|Any CPU.Build.0 = Release|Any CPU
+		{180630CA-404B-4AC7-92DE-065789043D29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{180630CA-404B-4AC7-92DE-065789043D29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{180630CA-404B-4AC7-92DE-065789043D29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{180630CA-404B-4AC7-92DE-065789043D29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -59,6 +65,7 @@ Global
 		{85186488-A798-41C4-9710-746E5236E35F} = {7B4DD0A2-A8B3-4856-BFD8-21F2A21D8A55}
 		{4A45F6A6-C70C-4A00-B565-89DDF5BCC67D} = {8CB3C861-2C00-45E7-AE31-975C1621294C}
 		{1DFF1EBB-DE30-4AF5-8462-900899E61A88} = {CFC4045C-EC22-4B6B-A559-D51FAFBE1B19}
+		{180630CA-404B-4AC7-92DE-065789043D29} = {FEBC4384-4D5A-43D7-A6D0-06B79EBB6A0E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D42F469-0144-4E36-AC19-41451EFFAA5D}

@@ -117,7 +117,10 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="OperacaoRealizadaComSucesso" xml:space="preserve">
-    <value>Operação realizada com êxito!</value>
+  <data name="CampoObrigatorio" xml:space="preserve">
+    <value>O campo {0} é obrigatório.</value>
+  </data>
+  <data name="EntidadeNaoEncontrada" xml:space="preserve">
+    <value>Entidade não encontrada.</value>
   </data>
 </root>

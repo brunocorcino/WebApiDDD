@@ -26,7 +26,7 @@
             var actionReturn = new ActionReturn();
 
             if (Entidade == null)
-                actionReturn.AdicionarErro("O campo Entidade é obrigatório");
+                actionReturn.AdicionarErro(string.Format(Helper.Messages.CampoObrigatorio, "Entidade"));
 
             return actionReturn;
         }
