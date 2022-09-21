@@ -33,11 +33,11 @@ namespace WebApiDDD.Application.AppServices.Base
 
             if (model == null)
             {
-                operacao.AdicionarErro(WebApiDDD.Infra.CrossCutting.Common.Helper.Messages.EntidadeNaoEncontrada);
+                operacao.AdicionarErro(Infra.CrossCutting.Common.Helper.Messages.EntidadeNaoEncontrada);
                 return operacao;
             }
 
-            model = await MapToUpdateModelAsync(operacao, model);
+            await MapToUpdateModelAsync(operacao, model);
 
             await OnValidateUpdateViewModelAsync(operacao, model);
 
@@ -71,7 +71,7 @@ namespace WebApiDDD.Application.AppServices.Base
             return await Service.GetByIdAsync(id);
         }
 
-        protected abstract Task<TModel> MapToUpdateModelAsync(Operacao<TUpdateViewModel> operacao, TModel model);
+        protected abstract Task MapToUpdateModelAsync(Operacao<TUpdateViewModel> operacao, TModel model);
 
         protected virtual async Task OnValidateUpdateViewModelAsync(Operacao<TUpdateViewModel> operacao, TModel model)
         {

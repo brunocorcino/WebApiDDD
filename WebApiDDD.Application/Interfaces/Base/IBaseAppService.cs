@@ -32,11 +32,12 @@ namespace WebApiDDD.Application.Interfaces.Base
     }
 
     public interface ICRUDBaseAppService<TFilterParams, TGetViewModel, TListViewModel, TCreateViewModel, TUpdateViewModel> :
-        IListBaseAppService<TFilterParams, TListViewModel>,
+        IListBaseAppService<TListViewModel, TFilterParams>,
         IGetBaseAppService<TGetViewModel>,
         ICreateBaseAppService<TCreateViewModel>,
         IUpdateBaseAppService<TUpdateViewModel>,
-        IDeleteBaseAppService
+        IDeleteBaseAppService,
+        IBaseAppService
     {
     }
 }

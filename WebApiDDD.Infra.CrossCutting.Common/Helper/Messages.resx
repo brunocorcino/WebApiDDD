@@ -123,4 +123,7 @@
   <data name="EntidadeNaoEncontrada" xml:space="preserve">
     <value>Entidade não encontrada.</value>
   </data>
+  <data name="ViolacaoChaveEstrangeira" xml:space="preserve">
+    <value>Antes de excluir este registro, é necessário excluir todas as informações vinculadas a ele.</value>
+  </data>
 </root>

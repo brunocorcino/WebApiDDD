@@ -77,5 +77,14 @@ namespace WebApiDDD.Infra.CrossCutting.Common.Helper {
                 return ResourceManager.GetString("EntidadeNaoEncontrada", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Antes de excluir este registro, é necessário excluir todas as informações vinculadas a ele..
+        /// </summary>
+        public static string ViolacaoChaveEstrangeira {
+            get {
+                return ResourceManager.GetString("ViolacaoChaveEstrangeira", resourceCulture);
+            }
+        }
     }
 }
