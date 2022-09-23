@@ -8,10 +8,23 @@ using Microsoft.Data.SqlClient;
 
 namespace WebApiDDD.Api.Controllers.Base
 {
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TAppService"></typeparam>
+    /// <typeparam name="TGetViewModel"></typeparam>
+    /// <typeparam name="TListViewModel"></typeparam>
+    /// <typeparam name="TFilterParams"></typeparam>
+    /// <typeparam name="TCreateViewModel"></typeparam>
+    /// <typeparam name="TUpdateViewModel"></typeparam>
     public abstract class BaseController<TAppService, TGetViewModel, TListViewModel, TFilterParams, TCreateViewModel, TUpdateViewModel>
         : BaseController<TAppService, TGetViewModel, TListViewModel, TFilterParams, TCreateViewModel>
         where TAppService : ICRUDBaseAppService<TFilterParams, TGetViewModel, TListViewModel, TCreateViewModel, TUpdateViewModel>
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="appService"></param>
         protected BaseController(TAppService appService) : base(appService)
         {
         }
@@ -45,6 +58,11 @@ namespace WebApiDDD.Api.Controllers.Base
             return Ok(apiResult);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="viewModel"></param>
+        /// <returns></returns>
         protected virtual async Task<Operacao<TUpdateViewModel>> UpdateAsync(TUpdateViewModel viewModel)
         {
             var operacao = CriarNovaOperacao(viewModel);
@@ -53,10 +71,22 @@ namespace WebApiDDD.Api.Controllers.Base
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TAppService"></typeparam>
+    /// <typeparam name="TGetViewModel"></typeparam>
+    /// <typeparam name="TListViewModel"></typeparam>
+    /// <typeparam name="TFilterParams"></typeparam>
+    /// <typeparam name="TCreateViewModel"></typeparam>
     public abstract class BaseController<TAppService, TGetViewModel, TListViewModel, TFilterParams, TCreateViewModel> :
         BaseController<TAppService, TGetViewModel, TListViewModel, TFilterParams>
         where TAppService : ICreateBaseAppService<TCreateViewModel>, IListBaseAppService<TListViewModel, TFilterParams>, IGetBaseAppService<TGetViewModel>, IDeleteBaseAppService, IBaseAppService
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="appService"></param>
         protected BaseController(TAppService appService) : base(appService)
         {
         }
@@ -94,12 +124,22 @@ namespace WebApiDDD.Api.Controllers.Base
             return Ok(apiResult);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="viewModel"></param>
         protected virtual void SetId(BaseViewModel viewModel)
         {
             if (viewModel.Id == Guid.Empty)
                 viewModel.Id = Guid.NewGuid();
         }
 
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="viewModel"></param>
+        /// <returns></returns>
         protected virtual async Task<Operacao<TCreateViewModel>> CreateAsync(TCreateViewModel viewModel)
         {
             var operacao = CriarNovaOperacao(viewModel);
@@ -146,6 +186,11 @@ namespace WebApiDDD.Api.Controllers.Base
             return Ok(apiResult);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         protected virtual async Task<Operacao<Guid>> DeleteAsync(Guid id)
         {
             var operacao = CriarNovaOperacao(id);
@@ -154,10 +199,21 @@ namespace WebApiDDD.Api.Controllers.Base
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TAppService"></typeparam>
+    /// <typeparam name="TGetViewModel"></typeparam>
+    /// <typeparam name="TListViewModel"></typeparam>
+    /// <typeparam name="TFilterParams"></typeparam>
     public abstract class BaseController<TAppService, TGetViewModel, TListViewModel, TFilterParams>
         : BaseController<TAppService, TGetViewModel>
         where TAppService : IListBaseAppService<TListViewModel, TFilterParams>, IGetBaseAppService<TGetViewModel>, IBaseAppService
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="appService"></param>
         protected BaseController(TAppService appService) : base(appService)
         {
         }
@@ -186,15 +242,29 @@ namespace WebApiDDD.Api.Controllers.Base
             return Ok(apiResult);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="filterParams"></param>
+        /// <returns></returns>
         protected virtual async Task<IEnumerable<TListViewModel>> ListAsync(TFilterParams filterParams)
         {
             return await AppService.ListAsync(filterParams);
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TAppService"></typeparam>
+    /// <typeparam name="TGetViewModel"></typeparam>
     public abstract class BaseController<TAppService, TGetViewModel> : BaseController<TAppService>
         where TAppService : IGetBaseAppService<TGetViewModel>, IBaseAppService
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="appService"></param>
         protected BaseController(TAppService appService) : base(appService)
         {
         }
@@ -226,30 +296,61 @@ namespace WebApiDDD.Api.Controllers.Base
             return Ok(apiResult);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         protected virtual async Task<TGetViewModel> GetByIdAsync(Guid id)
         {
             return await AppService.GetByIdAsync(id);
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="TAppService"></typeparam>
     public abstract class BaseController<TAppService> : BaseController
         where TAppService : IBaseAppService
     {
+        /// <summary>
+        /// 
+        /// </summary>
         protected TAppService AppService;
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="appService"></param>
         public BaseController(TAppService appService)
         {
             AppService = appService;
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
     public abstract class BaseController : ControllerBase
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="viewModel"></param>
+        /// <returns></returns>
         protected virtual Operacao<T> CriarNovaOperacao<T>(T viewModel)
         {
             return new Operacao<T>(viewModel);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="apiResult"></param>
+        /// <param name="ex"></param>
+        /// <returns></returns>
         protected IActionResult HandlerError(ApiResult apiResult, Exception ex = null)
         {
             if (ex != null)
@@ -265,6 +366,12 @@ namespace WebApiDDD.Api.Controllers.Base
             return BadRequest(apiResult);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="apiResult"></param>
+        /// <param name="ex"></param>
+        /// <returns></returns>
         protected IActionResult HandlerErrorForeignKeyViolation(ApiResult apiResult, Exception ex = null)
         {
             if (ex != null)

@@ -79,6 +79,15 @@ namespace WebApiDDD.Infra.CrossCutting.Common.Helper {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Existem registros duplicados de {0}..
+        /// </summary>
+        public static string RegistrosDuplicados {
+            get {
+                return ResourceManager.GetString("RegistrosDuplicados", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Antes de excluir este registro, é necessário excluir todas as informações vinculadas a ele..
         /// </summary>
         public static string ViolacaoChaveEstrangeira {

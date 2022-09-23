@@ -16,9 +16,15 @@ namespace WebApiDDD.Infra.IoC
         {
             services.AddDbContext<WebApiDDDContext>(options => options.UseSqlServer(connectionString));
 
+            // Carros
             services.AddScoped<ICarrosRepository, CarrosRepository>();
             services.AddScoped<ICarrosService, CarrosService>();
             services.AddScoped<ICarrosAppService, CarrosAppService>();
+
+            // Marcas
+            services.AddScoped<IMarcasRepository, MarcasRepository>();
+            services.AddScoped<IMarcasService, MarcasService>();
+            services.AddScoped<IMarcasAppService, MarcasAppService>();
         }
     }
 }
